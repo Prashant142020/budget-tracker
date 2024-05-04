@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { SignIn } from "./(auth)/sign-in";
 import SignOut from "./(auth)/sign-out";
 import Logo from "@/components/Logo";
+import { ModeToggle } from "@/components/ModeToggle";
  
 
 export default function Home() {
@@ -12,6 +13,8 @@ export default function Home() {
       <SignIn />
       <SignOut />
       <Logo />
+      <ModeToggle />
+     
     </main>
   );
 }
