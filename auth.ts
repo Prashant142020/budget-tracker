@@ -6,10 +6,19 @@ import db from "./lib/db";
 import { Adapter } from "next-auth/adapters";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  // Configure one or more authentication providers
   trustHost: true,
   // theme: {
   //   logo: "/logo.svg",
   // },
   adapter: PrismaAdapter(db) as Adapter,
+  callbacks: {
+    // session is the current session object from the client 
+    session({ session, user }) {
+      session.user.role = user.role;
+      return session;
+    },
+  },
+
   providers: [google, github],
 });
